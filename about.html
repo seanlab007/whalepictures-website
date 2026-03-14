@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>关于我们 | Whale Pictures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="src/css/style.css"/>
+  <style>
+    .page-hero { height: 50vh; min-height: 400px; display: flex; align-items: center; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.07) 0%, transparent 60%); }
+    .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 80px 80px; }
+    .page-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 100px 5% 0; width: 100%; }
+    .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gray); transition: color .3s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--accent); }
+
+    .story-section { padding: 8rem 5%; background: var(--primary); }
+    .story-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .story-content h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 3rem); margin-bottom: 1.5rem; line-height: 1.3; }
+    .story-content p { color: var(--gray); line-height: 1.9; margin-bottom: 1.5rem; }
+    .story-visual { background: var(--dark-gray); border-radius: 4px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+    .story-visual::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent); }
+    .story-visual .img-placeholder { color: rgba(255,255,255,0.15); font-size: .8rem; letter-spacing: .1em; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .story-visual .img-placeholder svg { width: 60px; height: 60px; opacity: .2; }
+
+    .values-section { padding: 6rem 5%; background: var(--dark-gray); }
+    .values-grid { max-width: 1200px; margin: 4rem auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .value-card { padding: 2.5rem 2rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; transition: var(--transition); }
+    .value-card:hover { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.2); }
+    .value-icon { width: 48px; height: 48px; color: var(--accent); margin-bottom: 1.5rem; }
+    .value-icon svg { width: 100%; height: 100%; }
+    .value-card h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: .75rem; }
+    .value-card p { font-size: .85rem; color: var(--gray); line-height: 1.7; }
+
+    .team-section { padding: 8rem 5%; background: var(--primary); }
+    .team-grid { max-width: 1200px; margin: 4rem auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .team-member { text-align: center; }
+    .member-avatar { width: 100%; aspect-ratio: 3/4; background: var(--dark-gray); border-radius: 4px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative; }
+    .member-avatar::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent); }
+    .avatar-placeholder { color: rgba(255,255,255,0.15); font-size: .75rem; letter-spacing: .1em; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+    .avatar-placeholder svg { width: 40px; height: 40px; opacity: .2; }
+    .member-name { font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: .25rem; }
+    .member-role { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .member-desc { font-size: .8rem; color: var(--gray); line-height: 1.6; }
+
+    .milestones { padding: 6rem 5%; background: var(--dark-gray); }
+    .timeline { max-width: 800px; margin: 4rem auto 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--accent), transparent); }
+    .timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; align-items: center; }
+    .timeline-item:nth-child(odd) .tl-content { text-align: right; }
+    .timeline-item:nth-child(even) .tl-year { order: 2; }
+    .timeline-item:nth-child(even) .tl-content { order: 1; }
+    .tl-year { font-family: var(--font-heading); font-size: 2.5rem; color: rgba(201,168,76,0.3); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .tl-content h4 { font-family: var(--font-heading); font-size: 1rem; margin-bottom: .5rem; }
+    .tl-content p { font-size: .85rem; color: var(--gray); line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .story-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline::before { display: none; }
+      .timeline-item { grid-template-columns: 1fr; gap: 1rem; }
+      .timeline-item:nth-child(odd) .tl-content { text-align: left; }
+      .timeline-item:nth-child(even) .tl-year { order: unset; }
+      .timeline-item:nth-child(even) .tl-content { order: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">WHALE PICTURES</div>
+  <div class="loader-bar"></div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">WHALE <span>PICTURES</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="services.html">服务</a></li>
+    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="about.html">关于我们</a></li>
+    <li><a href="contact.html" class="nav-cta">立即合作</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">首页</a><span>›</span><span>关于我们</span></div>
+    <h1>我们是谁<br><span style="color:var(--accent)">Whale Pictures</span></h1>
+  </div>
+</section>
+
+<!-- 品牌故事 -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <div class="story-content reveal">
+      <div class="section-label"><span>品牌故事</span></div>
+      <h2>以影像之名，<br>讲述品牌故事</h2>
+      <p>Whale Pictures 由一群对影像充满热情的创作者于 2016 年创立。我们相信，好的影像不只是视觉呈现，而是一种能跨越语言与文化的情感连接。</p>
+      <p>十年来，我们服务了来自美妆、时尚、科技、汽车等行业的国内外头部品牌，累计完成超过 200 支 TVC 广告，与 80+ 位国际模特建立长期合作关系，并在 AI 内容浪潮中率先布局 AI 短剧制作。</p>
+      <p>鲸鱼（Whale），是海洋中最具智慧与感染力的生命体之一——我们以此自励：追求深度、拥抱创新、以力量和优雅诠释每一个品牌的独特价值。</p>
+    </div>
+    <div class="story-visual reveal reveal-delay-1">
+      <div class="img-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span>上传品牌故事照片</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心价值观 -->
+<section class="values-section" id="culture">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header" style="max-width:100%">
+      <div>
+        <div class="section-label reveal"><span>企业文化</span></div>
+        <h2 class="section-title reveal">我们的核心价值</h2>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <h3>创意优先</h3>
+        <p>每个项目都从深度洞察开始，拒绝模板化思维，为每个品牌量身打造原创创意方案。</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+        </div>
+        <h3>品质至上</h3>
+        <p>我们对每一帧画面精益求精，无论项目大小，都以最高专业标准交付成果。</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+        </div>
+        <h3>全球视野</h3>
+        <p>团队成员来自多个国家，我们以国际化视角理解品牌，让内容跨越文化边界。</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3>拥抱创新</h3>
+        <p>率先将 AI 技术融入影视制作，持续探索 AIGC 与人工创作的最优结合点。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 团队 -->
+<section class="team-section" id="team">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header" style="max-width:100%;margin-bottom:0">
+      <div>
+        <div class="section-label reveal"><span>核心团队</span></div>
+        <h2 class="section-title reveal">认识我们的团队</h2>
+      </div>
+      <p class="section-desc reveal">多元背景、共同热情——这支团队让每一次创作都充满活力与专业保障。</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="member-avatar">
+          <div class="avatar-placeholder"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span>上传照片</span></div>
+        </div>
+        <div class="member-name">Alex Chen</div>
+        <div class="member-role">创始人 & 创意总监</div>
+        <div class="member-desc">曾任职于好莱坞制作公司，专注品牌影像叙事。</div>
+      </div>
+      <div class="team-member reveal reveal-delay-1">
+        <div class="member-avatar">
+          <div class="avatar-placeholder"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span>上传照片</span></div>
+        </div>
+        <div class="member-name">Sarah Liu</div>
+        <div class="member-role">外模经纪总监</div>
+        <div class="member-desc">欧洲时尚圈多年经验，建立了遍布全球的模特资源网络。</div>
+      </div>
+      <div class="team-member reveal reveal-delay-2">
+        <div class="member-avatar">
+          <div class="avatar-placeholder"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span>上传照片</span></div>
+        </div>
+        <div class="member-name">Max Wang</div>
+        <div class="member-role">AI 技术负责人</div>
+        <div class="member-desc">前大厂 AIGC 算法工程师，主导 AI 短剧技术研发。</div>
+      </div>
+      <div class="team-member reveal reveal-delay-3">
+        <div class="member-avatar">
+          <div class="avatar-placeholder"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg><span>上传照片</span></div>
+        </div>
+        <div class="member-name">Lily Zhang</div>
+        <div class="member-role">制作统筹总监</div>
+        <div class="member-desc">十年商业影视制作经验，确保每个项目按时高质量交付。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 里程碑 -->
+<section class="milestones">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header" style="max-width:100%">
+      <div>
+        <div class="section-label reveal"><span>发展历程</span></div>
+        <h2 class="section-title reveal">十年成长<br>里程碑</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="tl-year">2016</div>
+        <div class="tl-content">
+          <h4>Whale Pictures 正式成立</h4>
+          <p>在上海成立，初期专注商业摄影与品牌形象片制作。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-year">2018</div>
+        <div class="tl-content">
+          <h4>进军 TVC 广告制作</h4>
+          <p>组建专业 TVC 制作团队，承接首批国际品牌广告项目。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-year">2020</div>
+        <div class="tl-content">
+          <h4>开设国际外模经纪业务</h4>
+          <p>与欧美、俄罗斯顶级模特经纪公司建立战略合作关系。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <h4>成立 AI 短剧制作部门</h4>
+          <p>率先将 Sora、Kling 等 AI 工具引入短剧制作流程，打造差异化竞争力。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <h4>服务超 50 个国际品牌</h4>
+          <p>累计项目超 200 支，荣获多项行业奖项，进入品牌影像制作头部阵营。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <div class="cta-label reveal"><span>加入我们</span></div>
+    <h2 class="reveal">成为下一个<br>成功故事</h2>
+    <p class="reveal">无论您是品牌客户还是创意人才，我们都期待与您建立长期的合作关系。</p>
+    <div class="cta-actions reveal">
+      <a href="contact.html" class="btn-primary">立即联系</a>
+      <a href="portfolio.html" class="btn-outline">查看作品集</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">WHALE <span>PICTURES</span></div>
+        <p>用影像重新定义品牌叙事。</p>
+      </div>
+      <div class="footer-col"><h5>服务</h5><ul><li><a href="services.html#tvc">TVC 广告拍摄</a></li><li><a href="services.html#model">国际外模经纪</a></li><li><a href="services.html#ai">AI 短剧制作</a></li></ul></div>
+      <div class="footer-col"><h5>公司</h5><ul><li><a href="about.html">关于我们</a></li><li><a href="portfolio.html">作品集</a></li><li><a href="contact.html">联系我们</a></li></ul></div>
+      <div class="footer-col"><h5>联系</h5><ul><li><a href="mailto:info@whalepictures.vip">info@whalepictures.vip</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Whale Pictures. All rights reserved.</p>
+      <span class="icp">沪ICP备XXXXXXXX号</span>
+    </div>
+  </div>
+</footer>
+
+<script src="src/js/main.js"></script>
+</body>
+</html>
