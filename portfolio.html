@@ -1,270 +1,282 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>作品集 | Whale Pictures</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="src/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    .page-hero { height: 50vh; min-height: 400px; display: flex; align-items: center; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); position: relative; overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.07) 0%, transparent 60%); }
-    .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px); background-size: 80px 80px; }
-    .page-hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 5%; width: 100%; padding-top: 100px; }
-    .breadcrumb { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--gray); margin-bottom: 1.5rem; }
-    .breadcrumb a { color: var(--gray); transition: color .3s; }
-    .breadcrumb a:hover { color: var(--accent); }
-    .breadcrumb span { color: var(--accent); }
-    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.15; }
+    :root { --gold:#C9A84C; --gold-light:#E8C97A; --black:#0A0A0A; --dark:#111111; --gray:#1A1A1A; --text:#E8E8E8; --muted:#888; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px)}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:4px;color:#fff;text-decoration:none}
+    .logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:40px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:color 0.3s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s}
+    .nav-cta:hover{background:var(--gold);color:var(--black)}
 
-    .filter-bar { background: var(--dark-gray); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .filter-bar-inner { max-width: 1200px; margin: 0 auto; padding: 1.5rem 5%; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; cursor: pointer; background: transparent; color: var(--gray); transition: var(--transition); }
-    .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--primary); }
+    .page-hero{padding:160px 48px 80px;background:var(--dark)}
+    .section-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,90px);font-weight:300;line-height:1}
+    .page-desc{color:var(--muted);font-size:15px;line-height:1.9;max-width:500px;margin-top:20px}
 
-    .portfolio-section { padding: 4rem 5%; background: var(--primary); }
-    .portfolio-full { max-width: 1200px; margin: 0 auto; }
+    .filter-bar{padding:32px 48px;background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:72px;z-index:50;backdrop-filter:blur(10px)}
+    .filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:8px 20px;font-size:12px;letter-spacing:2px;cursor:pointer;transition:all 0.3s;text-transform:uppercase}
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
 
-    .portfolio-row { display: grid; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .portfolio-row.row-2 { grid-template-columns: 7fr 5fr; }
-    .portfolio-row.row-3 { grid-template-columns: repeat(3, 1fr); }
-    .portfolio-row.row-2-alt { grid-template-columns: 5fr 7fr; }
+    .portfolio-grid{padding:40px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+    .portfolio-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/5}
+    .portfolio-item.wide{grid-column:span 2;aspect-ratio:8/5}
+    .portfolio-item.tall{grid-row:span 2;aspect-ratio:4/10}
+    .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease;filter:brightness(0.85)}
+    .portfolio-item:hover img{transform:scale(1.05);filter:brightness(1)}
+    .portfolio-info{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;opacity:0;transition:opacity 0.3s}
+    .portfolio-item:hover .portfolio-info{opacity:1}
+    .p-cat{font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+    .p-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;margin-bottom:6px}
+    .p-client{font-size:12px;color:rgba(255,255,255,0.5)}
 
-    .pf-item { position: relative; overflow: hidden; border-radius: 4px; cursor: pointer; background: var(--dark-gray); }
-    .pf-item.tall { aspect-ratio: 4/3; }
-    .pf-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #1e1e1e, #2a2a2a); transition: transform 0.6s ease; }
-    .pf-item:hover .pf-bg { transform: scale(1.03); }
-    .pf-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; }
-    .pf-item:hover .pf-overlay { opacity: 1; }
-    .pf-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 2rem; transform: translateY(8px); opacity: 0; transition: var(--transition); }
-    .pf-item:hover .pf-info { transform: translateY(0); opacity: 1; }
-    .pf-cat { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
-    .pf-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .pf-brand { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
-    .pf-placeholder { width: 100%; height: 100%; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: rgba(255,255,255,0.12); font-size: 0.75rem; letter-spacing: 0.1em; }
-    .pf-placeholder svg { width: 40px; height: 40px; opacity: 0.2; }
-    .pf-num { position: absolute; top: 1rem; right: 1rem; font-family: var(--font-heading); font-size: 0.7rem; color: rgba(255,255,255,0.2); }
-    .video-badge { position: absolute; top: 1rem; left: 1rem; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.15); padding: 0.25rem 0.6rem; border-radius: 2px; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    /* TVC Section */
+    .tvc-section{padding:80px 48px;background:var(--gray)}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;margin-bottom:40px}
+    .tvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .tvc-card{background:var(--dark);overflow:hidden;cursor:pointer;transition:transform 0.3s}
+    .tvc-card:hover{transform:translateY(-4px)}
+    .tvc-thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
+    .tvc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+    .tvc-card:hover .tvc-thumb img{transform:scale(1.05)}
+    .tvc-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);transition:background 0.3s}
+    .tvc-card:hover .tvc-play{background:rgba(0,0,0,0.5)}
+    .play-btn{width:56px;height:56px;border:2px solid rgba(255,255,255,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;transition:all 0.3s}
+    .tvc-card:hover .play-btn{background:var(--gold);border-color:var(--gold);color:var(--black)}
+    .tvc-info{padding:20px}
+    .tvc-brand{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+    .tvc-name{font-size:16px;font-weight:400;margin-bottom:8px}
+    .tvc-desc{font-size:13px;color:var(--muted);line-height:1.6}
 
-    @media (max-width: 768px) {
-      .portfolio-row.row-2, .portfolio-row.row-3, .portfolio-row.row-2-alt { grid-template-columns: 1fr; }
-    }
+    footer{background:#050505;padding:60px 48px 32px}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+
+    @media(max-width:1024px){.portfolio-grid{grid-template-columns:repeat(3,1fr)}.tvc-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){nav{padding:20px 24px}.nav-links{display:none}.portfolio-grid{grid-template-columns:repeat(2,1fr);padding:20px 16px}.portfolio-item.wide{grid-column:span 1;aspect-ratio:4/5}.page-hero{padding:120px 24px 60px}.filter-bar{padding:20px 16px}.tvc-grid{grid-template-columns:1fr}.tvc-section{padding:60px 24px}}
   </style>
 </head>
 <body>
-
-<div id="loader">
-  <div class="loader-logo">WHALE PICTURES</div>
-  <div class="loader-bar"></div>
-</div>
-
 <nav>
-  <a href="index.html" class="nav-logo">WHALE <span>PICTURES</span></a>
+  <a href="index.html" class="logo">WHALE<span>·</span>PICTURES</a>
   <ul class="nav-links">
-    <li><a href="index.html">首页</a></li>
+    <li><a href="portfolio.html" style="color:var(--gold)">作品集</a></li>
     <li><a href="services.html">服务</a></li>
-    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="models.html">外模经纪</a></li>
     <li><a href="about.html">关于我们</a></li>
-    <li><a href="contact.html" class="nav-cta">立即合作</a></li>
   </ul>
-  <div class="hamburger"><span></span><span></span><span></span></div>
+  <a href="contact.html" class="nav-cta">合作咨询</a>
 </nav>
 
-<section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-content">
-    <div class="breadcrumb"><a href="index.html">首页</a><span>›</span><span>作品集</span></div>
-    <h1>精选作品<br><span style="color:var(--accent)">每帧皆故事</span></h1>
-  </div>
-</section>
+<div class="page-hero">
+  <p class="section-label">Portfolio</p>
+  <h1 class="page-title">精选<br>作品集</h1>
+  <p class="page-desc">TVC 广告 · 品牌包装 · 外模拍摄 · AI 短剧<br>每一个项目都是创意与匠心的结晶</p>
+</div>
 
 <div class="filter-bar">
-  <div class="filter-bar-inner">
-    <button class="filter-btn active" data-filter="all">全部作品</button>
-    <button class="filter-btn" data-filter="tvc">TVC 广告</button>
-    <button class="filter-btn" data-filter="model">外模大片</button>
-    <button class="filter-btn" data-filter="ai">AI 短剧</button>
-    <button class="filter-btn" data-filter="brand">品牌形象</button>
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="tvc">TVC 广告</button>
+  <button class="filter-btn" data-filter="brand">品牌包装</button>
+  <button class="filter-btn" data-filter="model">外模拍摄</button>
+  <button class="filter-btn" data-filter="ai">AI 短剧</button>
+</div>
+
+<!-- 品牌包装作品网格 -->
+<div class="portfolio-grid">
+  <div class="portfolio-item wide" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/e55ad1fbcb92a6a.jpg" alt="药匣子">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">药匣子 · 药房包装</div><div class="p-client">中药品牌视觉系统</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/c99febc63d425c4.jpg" alt="药匣子膏方">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">药匣子 · 中药膏方</div><div class="p-client">包装设计</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="tvc">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/87009a00e812.jpg" alt="小年食知积食贴">
+    <div class="portfolio-info"><span class="p-cat">TVC</span><div class="p-title">小年食知 · 积食贴</div><div class="p-client">广告拍摄</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="tvc">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/fbaef89e3c12fbc.jpg" alt="惊鸿贴">
+    <div class="portfolio-info"><span class="p-cat">TVC</span><div class="p-title">小年食知 · 惊鸿贴</div><div class="p-client">广告拍摄</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/0ccb030a2096251.jpg" alt="酸梅汤">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">小年食知 · 酸梅汤</div><div class="p-client">包装 + 拍摄</div></div>
+  </div>
+  <div class="portfolio-item wide" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/79fe82a2149dd91.jpg" alt="大师作茶">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">大师作 2.0 茶包装</div><div class="p-client">整体品牌视觉</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/df4b8c2f0d0c423.jpg" alt="小金罐茶礼盒">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">大师作 · 小金罐茶礼盒</div><div class="p-client">礼盒设计</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202504/d1aca7e536c2f6c.jpg" alt="茶饼盒">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">大师作 · 茶饼盒</div><div class="p-client">包装设计</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202407/128447e1f23f456.jpg" alt="虔酒品系列">
+    <div class="portfolio-info"><span class="p-cat">品牌视觉</span><div class="p-title">虔酒 · 品系列</div><div class="p-client">整体品牌视觉</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202407/e76b39de3de53cc.jpg" alt="岩湶號国内版">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">岩湶號 · 武夷岩茶 国内版</div><div class="p-client">包装 + 视觉</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202407/23a6d865d17fef0.jpg" alt="岩湶號海外版">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">岩湶號 · 武夷岩茶 海外版</div><div class="p-client">国际市场包装</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="tvc">
+    <img src="http://www.shineworks.com.cn/uploadfile/202407/a4297b1e304cf72.jpg" alt="全聚德">
+    <div class="portfolio-info"><span class="p-cat">TVC</span><div class="p-title">全聚德 × 零研所 · 去骨鸭掌</div><div class="p-client">品牌联名广告</div></div>
+  </div>
+  <div class="portfolio-item wide" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202407/b34a08e9f3b4289.jpg" alt="SOULLINK溯灵眼镜">
+    <div class="portfolio-info"><span class="p-cat">品牌视觉</span><div class="p-title">SOULLINK · 溯灵眼镜</div><div class="p-client">科技品牌视觉</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202305/bb8a8729f5f54bf.jpg" alt="虔酒竹隐">
+    <div class="portfolio-info"><span class="p-cat">品牌视觉</span><div class="p-title">虔酒 · 竹隐</div><div class="p-client">高端白酒品牌</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202305/9054a63151071d1.jpg" alt="虔酒山隐">
+    <div class="portfolio-info"><span class="p-cat">品牌视觉</span><div class="p-title">虔酒 · 山隐</div><div class="p-client">高端白酒品牌</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="tvc">
+    <img src="http://www.shineworks.com.cn/uploadfile/202305/ad19fe242cb5da8.jpg" alt="佳味螺">
+    <div class="portfolio-info"><span class="p-cat">TVC</span><div class="p-title">佳味螺 · 品牌广告</div><div class="p-client">广告拍摄</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202211/e379767055ffbdf.jpg" alt="爱耀咖啡">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">爱耀 · 挂耳咖啡</div><div class="p-client">包装设计</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202211/290ad11d2c45279.jpg" alt="虔酒520">
+    <div class="portfolio-info"><span class="p-cat">品牌视觉</span><div class="p-title">虔酒 · 520 限定</div><div class="p-client">节日限定包装</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="brand">
+    <img src="http://www.shineworks.com.cn/uploadfile/202211/a385bfba1cd4d42.jpg" alt="树上诚品">
+    <div class="portfolio-info"><span class="p-cat">品牌包装</span><div class="p-title">树上诚品 · 高山乌龙茶</div><div class="p-client">茶叶品牌</div></div>
+  </div>
+  <div class="portfolio-item wide" data-cat="model">
+    <img src="https://picsum.photos/seed/model_port1/800/500" alt="外模拍摄">
+    <div class="portfolio-info"><span class="p-cat">外模拍摄</span><div class="p-title">欧美外模 · 商业广告</div><div class="p-client">时尚品牌</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="model">
+    <img src="https://picsum.photos/seed/model_port2/400/500" alt="外模时尚">
+    <div class="portfolio-info"><span class="p-cat">外模拍摄</span><div class="p-title">大片拍摄 · Fashion</div><div class="p-client">时尚品牌</div></div>
+  </div>
+  <div class="portfolio-item" data-cat="model">
+    <img src="https://picsum.photos/seed/model_port3/400/500" alt="外模商拍">
+    <div class="portfolio-item-info"><span class="p-cat">外模拍摄</span><div class="p-title">商业拍摄 · Beauty</div><div class="p-client">美妆品牌</div></div>
   </div>
 </div>
 
-<section class="portfolio-section">
-  <div class="portfolio-full">
-
-    <div class="portfolio-row row-2 reveal">
-      <div class="pf-item tall" data-category="tvc">
-        <div class="pf-bg"></div>
-        <div class="pf-overlay"></div>
-        <div class="video-badge">▶ 视频</div>
-        <div class="pf-num">01</div>
-        <div class="pf-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          上传 TVC 作品图
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">TVC 广告 · 2025</div>
-          <div class="pf-name">「焕颜新生」美妆品牌广告片</div>
-          <div class="pf-brand">× 某国际美妆集团</div>
-        </div>
+<!-- TVC作品展示 -->
+<section class="tvc-section">
+  <p class="section-label">TVC Works</p>
+  <h2 class="section-title">TVC 精选作品</h2>
+  <div class="tvc-grid">
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202407/a4297b1e304cf72.jpg" alt="全聚德TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
       </div>
-      <div class="pf-item tall" data-category="model">
-        <div class="pf-bg"></div>
-        <div class="pf-overlay"></div>
-        <div class="pf-num">02</div>
-        <div class="pf-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-          上传外模大片
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">外模经纪 · 时尚大片</div>
-          <div class="pf-name">2025 春夏系列 · 巴黎外景</div>
-          <div class="pf-brand">× 高端时装品牌</div>
-        </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">全聚德 × 零研所</div>
+        <div class="tvc-name">去骨鸭掌 品牌联名广告</div>
+        <div class="tvc-desc">品牌跨界联名，创意广告拍摄，产品视觉化呈现</div>
       </div>
     </div>
-
-    <div class="portfolio-row row-3 reveal">
-      <div class="pf-item" data-category="ai">
-        <div class="pf-bg"></div><div class="pf-overlay"></div>
-        <div class="video-badge">▶ 短剧</div>
-        <div class="pf-num">03</div>
-        <div class="pf-placeholder" style="min-height:200px">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          AI 短剧封面图
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">AI 短剧</div>
-          <div class="pf-name">《深海计划》</div>
-          <div class="pf-brand">全 AI 制作 · 竖屏短剧</div>
-        </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202504/87009a00e812.jpg" alt="小年食知TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
       </div>
-      <div class="pf-item" data-category="brand">
-        <div class="pf-bg"></div><div class="pf-overlay"></div>
-        <div class="pf-num">04</div>
-        <div class="pf-placeholder" style="min-height:200px">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          品牌形象片
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">品牌形象片</div>
-          <div class="pf-name">科技美学 · 企业形象片</div>
-          <div class="pf-brand">× 头部科技公司</div>
-        </div>
-      </div>
-      <div class="pf-item" data-category="tvc">
-        <div class="pf-bg"></div><div class="pf-overlay"></div>
-        <div class="video-badge">▶ 视频</div>
-        <div class="pf-num">05</div>
-        <div class="pf-placeholder" style="min-height:200px">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          TVC 缩略图
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">TVC · 汽车</div>
-          <div class="pf-name">「新能量」新能源汽车广告</div>
-          <div class="pf-brand">× 国内新能源品牌</div>
-        </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">小年食知</div>
+        <div class="tvc-name">儿童健康系列 TVC 广告</div>
+        <div class="tvc-desc">积食贴、惊鸿贴、八珍糕等系列产品广告创作</div>
       </div>
     </div>
-
-    <div class="portfolio-row row-2-alt reveal">
-      <div class="pf-item tall" data-category="model">
-        <div class="pf-bg"></div><div class="pf-overlay"></div>
-        <div class="pf-num">06</div>
-        <div class="pf-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-          外模商业大片
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">外模经纪 · 商业电商</div>
-          <div class="pf-name">双十一主视觉 · 欧美模特组合</div>
-          <div class="pf-brand">× 电商平台</div>
-        </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202305/ad19fe242cb5da8.jpg" alt="佳味螺TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
       </div>
-      <div class="pf-item tall" data-category="ai">
-        <div class="pf-bg"></div><div class="pf-overlay"></div>
-        <div class="video-badge">▶ AI 短剧</div>
-        <div class="pf-num">07</div>
-        <div class="pf-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          AI 短剧封面
-        </div>
-        <div class="pf-info">
-          <div class="pf-cat">AI 短剧 · 品牌植入</div>
-          <div class="pf-name">《星际快递》 · 品牌定制剧</div>
-          <div class="pf-brand">× 快递科技品牌</div>
-        </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">佳味螺</div>
+        <div class="tvc-name">螺蛳粉品牌广告</div>
+        <div class="tvc-desc">地方特色美食品牌的全国化影视广告推广</div>
       </div>
     </div>
-
-  </div>
-</section>
-
-<section class="cta">
-  <div class="cta-inner">
-    <div class="cta-label reveal"><span>合作咨询</span></div>
-    <h2 class="reveal">您的下一个项目<br>就从这里开始</h2>
-    <p class="reveal">每一个作品的背后都有一段精彩的创作故事，我们期待与您共同书写下一章。</p>
-    <div class="cta-actions reveal">
-      <a href="contact.html" class="btn-primary">立即联系我们</a>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202407/b34a08e9f3b4289.jpg" alt="溯灵眼镜TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">SOULLINK 溯灵</div>
+        <div class="tvc-name">科技眼镜品牌形象片</div>
+        <div class="tvc-desc">科技感视觉语言，展现未来主义品牌调性</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202504/79fe82a2149dd91.jpg" alt="大师作TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">大师作</div>
+        <div class="tvc-name">高端茶品牌形象广告</div>
+        <div class="tvc-desc">东方美学影像，传递高端茶文化品牌内涵</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="http://www.shineworks.com.cn/uploadfile/202407/128447e1f23f456.jpg" alt="虔酒TVC">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">虔酒</div>
+        <div class="tvc-name">高端白酒品牌系列广告</div>
+        <div class="tvc-desc">竹隐、山隐、品鉴酒等系列完整品牌视觉体系建立</div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">WHALE <span>PICTURES</span></div>
-        <p>用影像重新定义品牌叙事。</p>
-      </div>
-      <div class="footer-col">
-        <h5>服务</h5>
-        <ul>
-          <li><a href="services.html#tvc">TVC 广告拍摄</a></li>
-          <li><a href="services.html#model">国际外模经纪</a></li>
-          <li><a href="services.html#ai">AI 短剧制作</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>公司</h5>
-        <ul>
-          <li><a href="about.html">关于我们</a></li>
-          <li><a href="portfolio.html">作品集</a></li>
-          <li><a href="contact.html">联系我们</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>联系</h5>
-        <ul>
-          <li><a href="mailto:info@whalepictures.vip">info@whalepictures.vip</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Whale Pictures. All rights reserved.</p>
-      <span class="icp">沪ICP备XXXXXXXX号</span>
-    </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Whale Pictures. All rights reserved.</span>
+    <span class="footer-copy">www.whalepictures.vip</span>
   </div>
 </footer>
 
-<script src="src/js/main.js"></script>
 <script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const pfItems = document.querySelectorAll('.pf-item');
-  filterBtns.forEach(btn => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      pfItems.forEach(item => {
-        const cat = item.dataset.category;
-        item.style.opacity = (filter === 'all' || cat === filter) ? '1' : '0.2';
-        item.style.pointerEvents = (filter === 'all' || cat === filter) ? 'auto' : 'none';
-        item.style.transition = 'opacity 0.4s ease';
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        if (filter === 'all' || item.dataset.cat === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
   });

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外模经纪 | Whale Pictures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#C9A84C;--gold-light:#E8C97A;--black:#0A0A0A;--dark:#111111;--gray:#1A1A1A;--text:#E8E8E8;--muted:#888}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px)}
+    .logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:4px;color:#fff;text-decoration:none}
+    .logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:40px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:color 0.3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.3s}
+    .nav-cta:hover{background:var(--gold);color:var(--black)}
+
+    .page-hero{min-height:65vh;display:flex;align-items:flex-end;padding:0 48px 80px;position:relative;overflow:hidden;background:var(--dark)}
+    .hero-bg-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;opacity:0.2}
+    .hero-bg-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(50%)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,0.3) 100%)}
+    .hero-content{position:relative;z-index:2}
+    .section-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,100px);font-weight:300;line-height:1;margin-bottom:20px}
+    .page-desc{color:var(--muted);font-size:15px;line-height:1.9;max-width:560px}
+
+    /* 合作机构 */
+    .agencies-bar{background:var(--gray);padding:24px 48px;display:flex;align-items:center;gap:48px;overflow-x:auto;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .agencies-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+    .agency-logo{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(255,255,255,0.4);letter-spacing:2px;white-space:nowrap;transition:color 0.3s;cursor:pointer}
+    .agency-logo:hover{color:var(--gold)}
+
+    /* 模特筛选 */
+    .models-section{padding:80px 48px}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;margin-bottom:12px}
+    .section-desc{color:var(--muted);font-size:15px;line-height:1.9;max-width:600px;margin-bottom:48px}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+    .filter-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:8px 20px;font-size:12px;letter-spacing:2px;cursor:pointer;transition:all 0.3s;text-transform:uppercase}
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+    .models-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .model-card{position:relative;overflow:hidden;cursor:pointer}
+    .model-card img{width:100%;height:480px;object-fit:cover;display:block;transition:transform 0.7s;filter:grayscale(15%)}
+    .model-card:hover img{transform:scale(1.04);filter:grayscale(0%)}
+    .model-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;transition:background 0.3s}
+    .model-card:hover .model-overlay{background:linear-gradient(to top,rgba(0,0,0,0.97) 0%,rgba(0,0,0,0.2) 55%)}
+    .model-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:6px}
+    .model-origin{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+    .model-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+    .model-tag{font-size:10px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:3px 10px;letter-spacing:1px}
+    .model-stats{display:flex;gap:16px;font-size:12px;color:rgba(255,255,255,0.4)}
+    .model-stats span{display:flex;flex-direction:column;gap:2px}
+    .model-stats strong{color:rgba(255,255,255,0.8);font-weight:400}
+    .model-book-btn{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--black);font-size:10px;letter-spacing:2px;padding:6px 14px;text-transform:uppercase;opacity:0;transition:opacity 0.3s;text-decoration:none}
+    .model-card:hover .model-book-btn{opacity:1}
+
+    /* 服务说明 */
+    .how-section{padding:80px 48px;background:var(--gray)}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px}
+    .how-card{background:var(--dark);padding:40px 32px;border:1px solid rgba(201,168,76,0.1);transition:border-color 0.3s}
+    .how-card:hover{border-color:var(--gold)}
+    .how-num{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold);opacity:0.3;margin-bottom:20px}
+    .how-title{font-size:18px;margin-bottom:12px;font-weight:400}
+    .how-desc{font-size:13px;color:var(--muted);line-height:1.8}
+
+    /* 报名CTA */
+    .signup-section{padding:120px 48px;text-align:center;background:var(--black);background-image:radial-gradient(ellipse at center,rgba(201,168,76,0.05) 0%,transparent 70%)}
+    .signup-section .section-title{font-size:clamp(36px,5vw,68px);max-width:700px;margin:0 auto 16px}
+    .signup-section .section-desc{margin:0 auto 40px}
+    .btn-gold{background:var(--gold);color:var(--black);padding:18px 48px;font-size:13px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-weight:500;display:inline-block;transition:all 0.3s}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-outline{border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);padding:18px 48px;font-size:13px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;margin-left:16px}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+    footer{background:#050505;padding:40px 48px 32px}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+
+    @media(max-width:1200px){.models-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:768px){nav{padding:20px 24px}.nav-links{display:none}.page-hero{padding:120px 24px 60px}.models-section{padding:60px 24px}.models-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:1fr}.how-section{padding:60px 24px}.signup-section{padding:80px 24px}.btn-outline{margin-left:0;margin-top:12px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">WHALE<span>·</span>PICTURES</a>
+  <ul class="nav-links">
+    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="services.html">服务</a></li>
+    <li><a href="models.html" class="active">外模经纪</a></li>
+    <li><a href="about.html">关于我们</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">合作咨询</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-bg-grid">
+    <img src="https://picsum.photos/seed/mh1/300/700" alt="">
+    <img src="https://picsum.photos/seed/mh2/300/700" alt="">
+    <img src="https://picsum.photos/seed/mh3/300/700" alt="">
+    <img src="https://picsum.photos/seed/mh4/300/700" alt="">
+    <img src="https://picsum.photos/seed/mh5/300/700" alt="">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="section-label">Model Agency</p>
+    <h1 class="page-title">外籍<br><em style="font-style:italic;color:var(--gold)">模特经纪</em></h1>
+    <p class="page-desc">汇聚全球 500+ 外籍专业模特资源。欧美、东欧、东南亚各类型模特，为品牌广告、时尚大片、电商拍摄提供顶尖人才匹配服务。</p>
+  </div>
+</div>
+
+<!-- 合作经纪公司 -->
+<div class="agencies-bar">
+  <span class="agencies-label">合作经纪</span>
+  <span class="agency-logo">IMG MODELS</span>
+  <span class="agency-logo">ELITE MODEL MANAGEMENT</span>
+  <span class="agency-logo">WILHELMINA</span>
+  <span class="agency-logo">FORD MODELS</span>
+  <span class="agency-logo">NEXT MODEL MANAGEMENT</span>
+  <span class="agency-logo">WOMEN MANAGEMENT</span>
+  <span class="agency-logo">THE SOCIETY</span>
+</div>
+
+<!-- 模特展示 -->
+<section class="models-section">
+  <p class="section-label">Our Roster</p>
+  <h2 class="section-title">模特阵容</h2>
+  <p class="section-desc">从时尚大片到商业广告，我们拥有覆盖各类型需求的专业外籍模特资源，按需精准匹配。</p>
+
+  <div class="filter-row">
+    <button class="filter-btn active">全部</button>
+    <button class="filter-btn">欧美</button>
+    <button class="filter-btn">东欧</button>
+    <button class="filter-btn">东南亚</button>
+    <button class="filter-btn">女模</button>
+    <button class="filter-btn">男模</button>
+  </div>
+
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard1/400/600" alt="Sophia">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">SOPHIA K.</div>
+        <div class="model-origin">🇫🇷 France</div>
+        <div class="model-tags"><span class="model-tag">TVC</span><span class="model-tag">Fashion</span><span class="model-tag">Luxury</span></div>
+        <div class="model-stats">
+          <span><strong>170cm</strong>身高</span>
+          <span><strong>EU</strong>区域</span>
+          <span><strong>5+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard2/400/600" alt="Anna">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">ANNA V.</div>
+        <div class="model-origin">🇷🇺 Russia</div>
+        <div class="model-tags"><span class="model-tag">Editorial</span><span class="model-tag">Beauty</span><span class="model-tag">TVC</span></div>
+        <div class="model-stats">
+          <span><strong>175cm</strong>身高</span>
+          <span><strong>东欧</strong>区域</span>
+          <span><strong>8+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard3/400/600" alt="Mira">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">MIRA T.</div>
+        <div class="model-origin">🇹🇭 Thailand</div>
+        <div class="model-tags"><span class="model-tag">Commercial</span><span class="model-tag">Beauty</span><span class="model-tag">E-commerce</span></div>
+        <div class="model-stats">
+          <span><strong>168cm</strong>身高</span>
+          <span><strong>亚洲</strong>区域</span>
+          <span><strong>4+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard4/400/600" alt="James">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">JAMES R.</div>
+        <div class="model-origin">🇺🇸 USA</div>
+        <div class="model-tags"><span class="model-tag">Commercial</span><span class="model-tag">Lifestyle</span><span class="model-tag">Sports</span></div>
+        <div class="model-stats">
+          <span><strong>185cm</strong>身高</span>
+          <span><strong>欧美</strong>区域</span>
+          <span><strong>6+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard5/400/600" alt="Elena">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">ELENA M.</div>
+        <div class="model-origin">🇩🇪 Germany</div>
+        <div class="model-tags"><span class="model-tag">Editorial</span><span class="model-tag">Runway</span><span class="model-tag">TVC</span></div>
+        <div class="model-stats">
+          <span><strong>178cm</strong>身高</span>
+          <span><strong>欧洲</strong>区域</span>
+          <span><strong>7+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard6/400/600" alt="Oliver">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">OLIVER B.</div>
+        <div class="model-origin">🇬🇧 UK</div>
+        <div class="model-tags"><span class="model-tag">Luxury</span><span class="model-tag">Commercial</span><span class="model-tag">Print</span></div>
+        <div class="model-stats">
+          <span><strong>183cm</strong>身高</span>
+          <span><strong>欧洲</strong>区域</span>
+          <span><strong>9+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard7/400/600" alt="Yuki">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">YUKI S.</div>
+        <div class="model-origin">🇯🇵 Japan</div>
+        <div class="model-tags"><span class="model-tag">Beauty</span><span class="model-tag">Fashion</span><span class="model-tag">E-commerce</span></div>
+        <div class="model-stats">
+          <span><strong>165cm</strong>身高</span>
+          <span><strong>亚洲</strong>区域</span>
+          <span><strong>5+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+    <div class="model-card">
+      <img src="https://picsum.photos/seed/modelcard8/400/600" alt="Lucas">
+      <a href="contact.html" class="model-book-btn">预约合作</a>
+      <div class="model-overlay">
+        <div class="model-name">LUCAS P.</div>
+        <div class="model-origin">🇧🇷 Brazil</div>
+        <div class="model-tags"><span class="model-tag">Sports</span><span class="model-tag">Commercial</span><span class="model-tag">Lifestyle</span></div>
+        <div class="model-stats">
+          <span><strong>188cm</strong>身高</span>
+          <span><strong>美洲</strong>区域</span>
+          <span><strong>6+</strong>年经验</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务流程 -->
+<section class="how-section">
+  <p class="section-label">How It Works</p>
+  <h2 class="section-title">合作流程</h2>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">01</div>
+      <div class="how-title">需求沟通</div>
+      <div class="how-desc">告诉我们项目背景、拍摄风格、模特类型需求，我们在 24 小时内提供精选推荐方案。</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">02</div>
+      <div class="how-title">模特匹配</div>
+      <div class="how-desc">根据品牌调性、拍摄类型、预算范围，从 500+ 模特库中精准筛选 3-5 位候选人供客户确认。</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">03</div>
+      <div class="how-title">合同签署</div>
+      <div class="how-desc">明确拍摄日期、权益范围、使用地域，签署标准合同，保障双方权益。</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">04</div>
+      <div class="how-title">拍摄执行</div>
+      <div class="how-desc">全程跟进协调，提供造型、妆发配合建议，确保拍摄顺利进行。</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">05</div>
+      <div class="how-title">后期交付</div>
+      <div class="how-desc">提供精修原片，如结合 Whale Pictures 制作服务，可实现一站式创意内容交付。</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">06</div>
+      <div class="how-title">版权管理</div>
+      <div class="how-desc">清晰的图片/视频使用授权管理，支持多媒体渠道授权，合规保障品牌传播。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 模特报名CTA -->
+<section class="signup-section">
+  <p class="section-label">Join Us</p>
+  <h2 class="section-title">你是外籍模特？<br><em style="font-style:italic;color:var(--gold)">加入我们</em></h2>
+  <p class="section-desc" style="max-width:500px;margin:0 auto 40px;color:var(--muted);font-size:15px;line-height:1.9">我们持续寻找各类型专业外籍模特，欢迎发送资料至邮箱报名，我们将在 3 个工作日内回复。</p>
+  <a href="contact.html" class="btn-gold">模特报名</a>
+  <a href="contact.html" class="btn-outline">品牌合作</a>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Whale Pictures. All rights reserved.</span>
+    <span class="footer-copy">www.whalepictures.vip</span>
+  </div>
+</footer>
+</body>
+</html>
