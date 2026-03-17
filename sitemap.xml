@@ -6,115 +6,143 @@
 
   <!-- 首页 -->
   <url>
-    <loc>https://www.whalepictures.com/</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.com/en/"/>
+    <loc>https://www.whalepictures.vip/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.vip/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.vip/en/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <image:image>
-      <image:loc>https://www.whalepictures.com/src/og-image.jpg</image:loc>
+      <image:loc>https://www.whalepictures.vip/src/og-image.jpg</image:loc>
       <image:title>Whale Pictures - AI短剧制作 · 外籍模特经纪 · TVC广告拍摄</image:title>
     </image:image>
   </url>
 
   <!-- AI 短剧落地页 -->
   <url>
-    <loc>https://www.whalepictures.com/ai-drama.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.com/ai-drama.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.com/en/ai-drama.html"/>
+    <loc>https://www.whalepictures.vip/ai-drama.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.vip/ai-drama.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.vip/en/ai-drama.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <image:image>
-      <image:loc>https://www.whalepictures.com/src/og-ai-drama.jpg</image:loc>
+      <image:loc>https://www.whalepictures.vip/src/og-ai-drama.jpg</image:loc>
       <image:title>AI短剧制作 - AIGC品牌短剧 - Sora Kling AI视频</image:title>
     </image:image>
   </url>
 
   <!-- 外模经纪落地页 -->
   <url>
-    <loc>https://www.whalepictures.com/model-agency.html</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.com/model-agency.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.com/en/model-agency.html"/>
+    <loc>https://www.whalepictures.vip/model-agency.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.vip/model-agency.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.vip/en/model-agency.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <image:image>
-      <image:loc>https://www.whalepictures.com/src/og-model-agency.jpg</image:loc>
+      <image:loc>https://www.whalepictures.vip/src/og-model-agency.jpg</image:loc>
       <image:title>外籍模特经纪 - 欧美东欧东南亚外模公司</image:title>
     </image:image>
   </url>
 
   <!-- 服务页 -->
   <url>
-    <loc>https://www.whalepictures.com/services.html</loc>
+    <loc>https://www.whalepictures.vip/services.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+
+  <!-- 企业宣传片落地页 -->
+  <url>
+    <loc>https://www.whalepictures.vip/corporate-video.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.vip/corporate-video.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.vip/en/corporate-video.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <lastmod>2026-03-17</lastmod>
+    <image:image>
+      <image:loc>https://www.whalepictures.vip/src/og-corporate.jpg</image:loc>
+      <image:title>企业宣传片制作 - 企业形象片 - 公司宣传片</image:title>
+    </image:image>
+  </url>
+
+  <!-- 广告片落地页 -->
+  <url>
+    <loc>https://www.whalepictures.vip/commercial-film.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.whalepictures.vip/commercial-film.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.whalepictures.vip/en/commercial-film.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <lastmod>2026-03-17</lastmod>
+    <image:image>
+      <image:loc>https://www.whalepictures.vip/src/og-commercial.jpg</image:loc>
+      <image:title>广告片制作 - TVC广告 - 商业视频广告</image:title>
+    </image:image>
   </url>
 
   <!-- 作品集页 -->
   <url>
-    <loc>https://www.whalepictures.com/portfolio.html</loc>
+    <loc>https://www.whalepictures.vip/portfolio.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 
   <!-- 模特页面 -->
   <url>
-    <loc>https://www.whalepictures.com/models.html</loc>
+    <loc>https://www.whalepictures.vip/models.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 
   <!-- 关于我们 -->
   <url>
-    <loc>https://www.whalepictures.com/about.html</loc>
+    <loc>https://www.whalepictures.vip/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 
   <!-- 联系页 -->
   <url>
-    <loc>https://www.whalepictures.com/contact.html</loc>
+    <loc>https://www.whalepictures.vip/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 
   <!-- Blog/新闻页面 (预留) -->
   <url>
-    <loc>https://www.whalepictures.com/blog/</loc>
+    <loc>https://www.whalepictures.vip/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 
   <url>
-    <loc>https://www.whalepictures.com/blog/ai-drama-marketing-guide.html</loc>
+    <loc>https://www.whalepictures.vip/blog/ai-drama-marketing-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <title>AI短剧营销完全指南 - 如何用AIGC打造品牌流量</title>
   </url>
 
   <url>
-    <loc>https://www.whalepictures.com/blog/foreign-model-hiring-guide.html</loc>
+    <loc>https://www.whalepictures.vip/blog/foreign-model-hiring-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <title>外籍模特预约全攻略 - 品牌出海必看</title>
   </url>
 
   <url>
-    <loc>https://www.whalepictures.com/blog/tvc-vs-ai-drama-comparison.html</loc>
+    <loc>https://www.whalepictures.vip/blog/tvc-vs-ai-drama-comparison.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <title>TVC广告 vs AI短剧 - 品牌应该如何选择？</title>
   </url>
 
