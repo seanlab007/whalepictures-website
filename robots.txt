@@ -1,0 +1,73 @@
+# Whale Pictures SEO - Robots.txt
+# https://www.whalepictures.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.whalepictures.com/sitemap.xml
+
+# 优先级页面
+Allow: /index.html
+Allow: /ai-drama.html
+Allow: /model-agency.html
+Allow: /services.html
+Allow: /portfolio.html
+Allow: /models.html
+Allow: /about.html
+Allow: /contact.html
+
+# Blog 页面
+Allow: /blog/
+Allow: /blog/*.html
+
+# 静态资源
+Allow: /src/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# 图片
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+
+# 禁止访问
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.php$
+Disallow: /*.asp$
+Disallow: /*.cgi$
+
+# Googlebot 特定规则
+User-agent: Googlebot
+Allow: /
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.css
+Allow: /*.js
+
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /src/
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# 爬虫延迟 (可选，防止服务器过载)
+# Crawl-delay: 1
+
+# 主机声明
+Host: https://www.whalepictures.com

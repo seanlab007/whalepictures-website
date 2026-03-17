@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI短剧营销完全指南 | 如何用AIGC打造品牌流量引擎 - Whale Pictures</title>
+  <meta name="description" content="深度解析AI短剧制作全流程，成本对比、平台适配、案例拆解。手把手教你用AIGC技术（Sora/Kling）实现品牌内容营销弯道超车。">
+  <meta name="keywords" content="AI短剧营销,AIGC视频制作,Sora短剧,Kling AI,品牌短剧制作,AI短视频,抖音短剧,小红书短剧,AIGC品牌营销,AI视频成本,短剧制作教程">
+  <link rel="canonical" href="https://www.whalepictures.com/blog/ai-drama-marketing-guide.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI短剧营销完全指南：如何用AIGC打造品牌流量引擎",
+    "description": "深度解析AI短剧制作全流程，成本对比、平台适配、案例拆解，手把手教你用AIGC技术实现品牌内容营销弯道超车。",
+    "author": { "@type": "Organization", "name": "Whale Pictures" },
+    "publisher": { "@type": "Organization", "name": "Whale Pictures" },
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "image": "https://www.whalepictures.com/src/blog-ai-drama.jpg",
+    "url": "https://www.whalepictures.com/blog/ai-drama-marketing-guide.html"
+  }
+  </script>
+
+  <style>
+    :root { --gold: #C9A84C; --black: #0A0A0A; --dark: #111111; --text: #E8E8E8; --muted: #888; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--black); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.8; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; letter-spacing: 4px; color: #fff; text-decoration: none; }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+    .article { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
+    .article-header { text-align: center; margin-bottom: 48px; }
+    .article-cat { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+    .article-title { font-family: 'Cormorant Garamond',serif; font-size: clamp(32px,5vw,48px); font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
+    .article-meta { color: var(--muted); font-size: 14px; }
+    .article-content { font-size: 16px; }
+    .article-content h2 { font-family: 'Cormorant Garamond',serif; font-size: 28px; font-weight: 300; margin: 48px 0 20px; color: #fff; }
+    .article-content h3 { font-size: 20px; font-weight: 500; margin: 32px 0 16px; color: #fff; }
+    .article-content p { margin-bottom: 20px; color: rgba(255,255,255,0.8); }
+    .article-content ul, .article-content ol { margin: 0 0 20px 20px; }
+    .article-content li { margin-bottom: 12px; color: rgba(255,255,255,0.8); }
+    .article-content strong { color: var(--gold); font-weight: 500; }
+    .article-content a { color: var(--gold); text-decoration: underline; }
+    .highlight-box { background: var(--dark); border-left: 3px solid var(--gold); padding: 24px; margin: 32px 0; }
+    .highlight-box p { margin: 0; }
+    .cta-box { text-align: center; padding: 48px 24px; background: radial-gradient(ellipse at center,rgba(201,168,76,0.1) 0%,transparent 70%); margin-top: 60px; }
+    .cta-box h3 { font-family: 'Cormorant Garamond',serif; font-size: 28px; margin-bottom: 16px; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--black); padding: 14px 32px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; font-weight: 500; margin-top: 16px; }
+    footer { background: #050505; padding: 32px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 16px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+    @media(max-width:768px){ nav { padding: 16px 24px; } .nav-links { display: none; } .article { padding: 100px 20px 40px; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">WHALE<span>·</span>PICTURES</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">首页</a></li>
+    <li><a href="../ai-drama.html">AI短剧</a></li>
+    <li><a href="../model-agency.html">外模经纪</a></li>
+    <li><a href="../contact.html">联系我们</a></li>
+  </ul>
+</nav>
+
+<article class="article">
+  <header class="article-header">
+    <div class="article-cat">AI短剧营销</div>
+    <h1 class="article-title">AI短剧营销完全指南：如何用AIGC打造品牌流量引擎</h1>
+    <div class="article-meta">Whale Pictures · 2026年3月16日</div>
+  </header>
+
+  <div class="article-content">
+    <p>2026年，AI短剧正在颠覆品牌内容营销的玩法。借助 <strong>Sora、Kling</strong> 等 AIGC 工具，品牌可以用极低成本创作电影级短剧，实现传统广告无法达到的传播效果。本文将深度解析 AI 短剧制作的完整流程、成本对比、平台适配策略，并通过真实案例手把手教你如何用 AI 短剧打造品牌流量引擎。</p>
+
+    <h2>一、什么是 AI 短剧？</h2>
+    <p>AI 短剧是指利用人工智能生成技术（AIGC）制作的短视频内容。与传统拍摄相比，AI 短剧的核心优势在于：</p>
+    <ul>
+      <li><strong>成本大幅降低</strong>：无需场地、设备、演员，AI 生成一切</li>
+      <li><strong>周期极速压缩</strong>：最快 3 天可完成一集</li>
+      <li><strong>风格灵活多变</strong>：科幻、复古、梦幻等风格任意切换</li>
+      <li><strong>批量持续产出</strong>：可快速生成系列短剧，持续输出品牌内容</li>
+    </ul>
+
+    <h2>二、AI 短剧 vs 传统 TVC：成本与效果对比</h2>
+    <p>很多品牌主会问：AI 短剧和传统 TVC 广告有什么区别？我应该选择哪个？</p>
+
+    <div class="highlight-box">
+      <p><strong>核心结论：</strong>TVC 适合品牌调性塑造，AI 短剧适合内容流量获取。最佳策略是两者结合——用 TVC 树立品牌高度，用 AI 短剧持续获取流量。</p>
+    </div>
+
+    <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+      <tr style="border-bottom:1px solid #333;">
+        <th style="padding:12px;text-align:left;color:#fff;">对比项</th>
+        <th style="padding:12px;text-align:left;color:#fff;">传统 TVC</th>
+        <th style="padding:12px;text-align:left;color:#fff;">AI 短剧</th>
+      </tr>
+      <tr style="border-bottom:1px solid #222;">
+        <td style="padding:12px;">单集成本</td>
+        <td style="padding:12px;">¥30,000-300,000+</td>
+        <td style="padding:12px;">¥8,000-30,000</td>
+      </tr>
+      <tr style="border-bottom:1px solid #222;">
+        <td style="padding:12px;">制作周期</td>
+        <td style="padding:12px;">2-4 周</td>
+        <td style="padding:12px;">3-7 天</td>
+      </tr>
+      <tr style="border-bottom:1px solid #222;">
+        <td style="padding:12px;">适用场景</td>
+        <td style="padding:12px;">品牌广告、TVC</td>
+        <td style="padding:12px;">内容营销、社交媒体</td>
+      </tr>
+      <tr style="border-bottom:1px solid #222;">
+        <td style="padding:12px;">传播效果</td>
+        <td style="padding:12px;">品牌曝光为主</td>
+        <td style="padding:12px;">流量获取+互动</td>
+      </tr>
+    </table>
+
+    <h2>三、AI 短剧制作全流程</h2>
+    <h3>1. 需求沟通与创意定位</h3>
+    <p>首先明确：你的目标受众是谁？想在哪个平台传播？想达到什么效果？不同的平台和目标需要不同的短剧风格。</p>
+
+    <h3>2. 剧本创作</h3>
+    <p>专业的编剧团队会根据品牌调性创作适合的剧本。关键是要在故事中自然植入品牌信息，而不是硬广植入。</p>
+
+    <h3>3. AI 生成（核心环节）</h3>
+    <p>利用 Sora、Kling 等 AI 工具生成：</p>
+    <ul>
+      <li><strong>场景生成</strong>：输入描述，AI 自动生成电影级场景</li>
+      <li><strong>角色生成</strong>：创建符合品牌调性的 AI 数字人形象</li>
+      <li><strong>动作渲染</strong>：让角色按剧本要求做出相应动作</li>
+    </ul>
+
+    <h3>4. 后期制作</h3>
+    <p>AI 生成的素材需要专业后期处理：调色、配音、配乐、特效合成，最终输出成片。</p>
+
+    <h3>5. 平台适配与分发</h3>
+    <p>根据不同平台的特点调整：</p>
+    <ul>
+      <li><strong>抖音</strong>：15-60秒，竖版 9:16，强调前 3 秒吸引力</li>
+      <li><strong>小红书</strong>：60秒内，竖版或方形，种草风格</li>
+      <li><strong>视频号</strong>：1-3分钟，横版或竖版，社交裂变属性强</li>
+    </ul>
+
+    <h2>四、热门平台 AI 短剧案例分析</h2>
+    <p>以下是几个成功的 AI 短剧营销案例：</p>
+    <ul>
+      <li><strong>美妆品牌</strong>：用 AI 生成"变妆"前后对比视频，播放量破 500 万</li>
+      <li><strong>茶饮品牌</strong>：AI 古风短剧植入产品，月销量提升 200%</li>
+      <li><strong>3C 品牌</strong>：AI 科幻风格产品演示视频，完播率超 70%</li>
+    </ul>
+
+    <h2>五、如何开始你的 AI 短剧营销？</h2>
+    <p>对于首次尝试 AI 短剧的品牌，建议从以下步骤开始：</p>
+    <ol>
+      <li><strong>明确目标</strong>：是品牌曝光、产品种草还是销售转化？</li>
+      <li><strong>选择试点</strong>：先选择一个平台（如抖音或小红书）测试</li>
+      <li><strong>小步快跑</strong>：先做 1-2 集测试效果，再决定是否追加投入</li>
+      <li><strong>数据优化</strong>：根据播放数据优化内容策略</li>
+    </ol>
+
+    <div class="highlight-box">
+      <p><strong>Whale Pictures AI 短剧服务</strong>：专业团队提供从创意到成片的全流程服务，成本仅为传统方式的 1/3，最快 3 天交付。点击咨询获取定制方案。</p>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>准备好用 AI 短剧打造品牌流量引擎了吗？</h3>
+    <p style="color:var(--muted);">立即咨询，获取免费方案定制</p>
+    <a href="../contact.html" class="cta-btn">立即咨询</a>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-links">
+    <a href="../index.html">首页</a>
+    <a href="../ai-drama.html">AI短剧</a>
+    <a href="../model-agency.html">外模经纪</a>
+    <a href="../services.html">服务</a>
+    <a href="../contact.html">联系我们</a>
+  </div>
+  <p class="footer-copy">© 2026 Whale Pictures. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
