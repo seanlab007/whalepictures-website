@@ -327,8 +327,13 @@
       .footer-top { grid-template-columns: 1fr; }
       .models-section { padding: 80px 24px; }
       .awards-section { padding: 80px 24px; }
+
+      /* MaoYan Widget */
+      #maoyan-widget-nav { position: relative; display: inline-block; margin-left: 16px; }
     }
   </style>
+  <!-- MaoYan Universal SDK：跨平台 SSO + 积分钱包 -->
+  <script src="https://maoyan.vip/sdk/maoyan-sdk.js" defer></script>
 </head>
 <body>
 
@@ -341,7 +346,11 @@
     <li><a href="models.html">外模经纪</a></li>
     <li><a href="about.html">关于我们</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">合作咨询</a>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <!-- MaoYan 积分登录组件 -->
+    <div id="maoyan-widget-nav"></div>
+    <a href="contact.html" class="nav-cta">合作咨询</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -843,6 +852,18 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
+  });
+
+  // ── MaoYan SDK 初始化 ────────────────────────────────────────────────────
+  window.addEventListener('load', function() {
+    if (typeof MaoYan !== 'undefined') {
+      MaoYan.init({ platform: 'whalepictures' });
+      MaoYan.renderWidget('maoyan-widget-nav', {
+        theme: 'dark',
+        showBalance: true,
+        redirectTo: window.location.href,
+      });
+    }
   });
 </script>
 </body>
