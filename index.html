@@ -268,6 +268,7 @@
     .award-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 10px; font-weight: 300; }
     .award-project { font-size: 13px; color: var(--muted); line-height: 1.6; }
     .award-medal { position: absolute; top: 32px; right: 32px; font-size: 28px; opacity: 0.4; }
+    .award-client { font-size: 11px; color: rgba(201,168,76,0.5); letter-spacing: 2px; margin-top: 8px; text-transform: uppercase; }
 
     /* STATS */
     .stats-section { padding: 80px 48px; background: var(--gold); }
@@ -275,6 +276,33 @@
     .stat-item { text-align: center; padding: 40px 20px; }
     .stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); color: var(--black); font-weight: 300; line-height: 1; }
     .stat-label { font-size: 12px; color: rgba(0,0,0,0.6); letter-spacing: 3px; text-transform: uppercase; margin-top: 8px; }
+
+    /* TVC LEGACY */
+    .tvc-section { padding: 120px 48px; background: var(--black); }
+    .tvc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+    @media (max-width: 1024px) { .tvc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .tvc-grid { grid-template-columns: 1fr; } }
+    .tvc-card {
+      position: relative; overflow: hidden; aspect-ratio: 16/9; cursor: pointer;
+      background: var(--dark);
+    }
+    .tvc-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; filter: grayscale(20%) brightness(0.85); }
+    .tvc-card:hover img { transform: scale(1.06); filter: grayscale(0%) brightness(1); }
+    .tvc-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+    }
+    .tvc-card-brand { font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .tvc-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: #fff; margin-bottom: 6px; }
+    .tvc-card-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; opacity: 0; transform: translateY(8px); transition: all 0.35s; }
+    .tvc-card:hover .tvc-card-desc { opacity: 1; transform: translateY(0); }
+    .tvc-card-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold); font-size: 10px; letter-spacing: 2px; padding: 4px 10px;
+      text-transform: uppercase;
+    }
 
     /* CLIENTS */
     .clients-section { padding: 80px 48px; background: var(--dark); }
@@ -342,6 +370,7 @@
   <a href="index.html" class="logo">WHALE<span>·</span>PICTURES</a>
   <ul class="nav-links">
     <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="index.html#tvc-cases">过往TVC</a></li>
     <li><a href="services.html">服务</a></li>
     <li><a href="models.html">外模经纪</a></li>
     <li><a href="about.html">关于我们</a></li>
@@ -389,6 +418,7 @@
     <span>Spikes Asia</span><span class="awards-dot"></span>
     <span>中国艾菲奖</span><span class="awards-dot"></span>
     <span>中国元素 特别贡献奖</span><span class="awards-dot"></span>
+    <span>伦敦国际奖 华文金奖</span><span class="awards-dot"></span>
     <!-- 重复一遍保证无缝 -->
     <span>戛纳国际广告节 铜狮</span><span class="awards-dot"></span>
     <span>D&AD In Book</span><span class="awards-dot"></span>
@@ -399,6 +429,7 @@
     <span>Spikes Asia</span><span class="awards-dot"></span>
     <span>中国艾菲奖</span><span class="awards-dot"></span>
     <span>中国元素 特别贡献奖</span><span class="awards-dot"></span>
+    <span>伦敦国际奖 华文金奖</span><span class="awards-dot"></span>
   </div>
 </div>
 
@@ -456,6 +487,107 @@
       </div>
       <span style="color:var(--gold);font-size:28px;">→</span>
     </a>
+  </div>
+</section>
+
+<!-- TVC LEGACY CASES -->
+<section class="tvc-section" id="tvc-cases">
+  <p class="section-label">Past Works · 过往TVC</p>
+  <h2 class="section-title">经典TVC案例<br><em>国际品牌创作历程</em></h2>
+  <p class="section-desc">主创团队服务青岛啤酒、阿里巴巴、健达、李锦记等国际一线品牌，多部作品播放量破亿，荣获伦敦国际奖华文金奖。</p>
+
+  <div class="tvc-grid">
+
+    <div class="tvc-card">
+      <img src="images/tvc/tsingtao-nightowl.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1008,#0d0d0d)'" alt="青岛啤酒夜猫子奇幻夜">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Tsingtao Beer · 青岛啤酒</span>
+        <div class="tvc-card-title">《夜猫子奇幻夜》</div>
+        <div class="tvc-card-desc">播放量破亿 · 微博话题阅读量破1亿 · 讨论量超125万。IP+消费场景爆款传播，深度沟通年轻群体。</div>
+      </div>
+      <span class="tvc-card-badge">伦敦国际奖 金奖</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/tsingtao-foam.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0a1520,#0d0d0d)'" alt="青岛啤酒泡沫片">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Tsingtao Beer · 青岛啤酒</span>
+        <div class="tvc-card-title">《泡沫片》</div>
+        <div class="tvc-card-desc">城市泡沫视觉奇观，用欢乐连接曼谷，国际化创意表达。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/alibaba-small.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a0a00,#0d0d0d)'" alt="阿里巴巴相信小的伟大">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Alibaba · 阿里巴巴</span>
+        <div class="tvc-card-title">《相信小的伟大》</div>
+        <div class="tvc-card-desc">赋能中小企业和年轻人，让每个小都能影响世界。AliExpress · 1688 · 淘宝 · 天猫全平台。</div>
+      </div>
+      <span class="tvc-card-badge">品牌形象片</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/kinder-love.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a0808,#0d0d0d)'" alt="健达巧克力爱的瞬间">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Kinder · 健达巧克力</span>
+        <div class="tvc-card-title">《爱的瞬间篇》</div>
+        <div class="tvc-card-desc">亲子情感共鸣，健达相信每一个爱的瞬间。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/lkk-kitchen.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0a1a08,#0d0d0d)'" alt="李锦记美味厨房">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Lee Kum Kee · 李锦记</span>
+        <div class="tvc-card-title">《美味厨房篇》</div>
+        <div class="tvc-card-desc">黑白厨房风格，爱的时遇之心，传递家的温度。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/walls-hob.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#001a1a,#0d0d0d)'" alt="和路雪王者荣耀">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Wall's · 和路雪</span>
+        <div class="tvc-card-title">《王者荣耀-男生篇》</div>
+        <div class="tvc-card-desc">游戏IP联名，好多圈冰淇淋，打通年轻游戏圈层。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/aldi-heartbeat.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#00081a,#0d0d0d)'" alt="奥乐齐心跳篇">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">ALDI · 奥乐齐</span>
+        <div class="tvc-card-title">《心跳篇》</div>
+        <div class="tvc-card-desc">源自德国百年超市，亲选为你。EVERYDAY VALUE, HANDPICKED FOR YOU.</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/laoshan-friendship.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0a1208,#0d0d0d)'" alt="崂山啤酒为友情喝彩">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">Laoshan Beer · 崂山啤酒</span>
+        <div class="tvc-card-title">《为友情喝彩篇》</div>
+        <div class="tvc-card-desc">篮球友情主题，真实情感共鸣，助力客户突破百亿。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
+    <div class="tvc-card">
+      <img src="images/tvc/illuma-talent.jpg" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a08,#0d0d0d)'" alt="惠氏启赋天赋篇">
+      <div class="tvc-card-overlay">
+        <span class="tvc-card-brand">illuma · 惠氏启赋</span>
+        <div class="tvc-card-title">《天赋篇》</div>
+        <div class="tvc-card-desc">竹林自然意境，天赋启迪，为宝宝的成长护航。</div>
+      </div>
+      <span class="tvc-card-badge">TVC</span>
+    </div>
+
   </div>
 </section>
 
@@ -623,7 +755,7 @@
       <div class="stat-label">国际广告奖项</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">200+</div>
+      <div class="stat-num">100+</div>
       <div class="stat-label">品牌合作案例</div>
     </div>
     <div class="stat-item">
@@ -691,6 +823,27 @@
       <div class="award-project">特别文化贡献奖 · 中国国家形象片</div>
       <div class="award-medal">🏆</div>
     </div>
+    <div class="award-card">
+      <div class="award-year">2016</div>
+      <div class="award-name">伦敦国际奖</div>
+      <div class="award-project">华文金奖 · Film Category</div>
+      <div class="award-medal">🥇</div>
+      <div class="award-client">青岛啤酒 · 夜猫子奇幻夜</div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2016</div>
+      <div class="award-name">龙玺广告节</div>
+      <div class="award-project">金奖 · Greater China</div>
+      <div class="award-medal">🥇</div>
+      <div class="award-client">青岛啤酒 · 夜猫子系列</div>
+    </div>
+    <div class="award-card">
+      <div class="award-year">2016</div>
+      <div class="award-name">Spikes Asia</div>
+      <div class="award-project">Shortlist · Film Craft</div>
+      <div class="award-medal">✨</div>
+      <div class="award-client">青岛啤酒 · 夜猫子系列</div>
+    </div>
   </div>
 </section>
 
@@ -698,7 +851,20 @@
 <section class="clients-section">
   <p class="section-label">Clients</p>
   <h2 class="section-title">服务品牌</h2>
-  <div class="clients-grid">
+  <p class="section-desc" style="margin-bottom:0">服务覆盖快消品、食品饰品、互联网等多个行业，包括多个世界500强上市公司及国际知名品牌。</p>
+  <div class="clients-grid" style="margin-top:40px">
+    <div class="client-item">青岛啤酒</div>
+    <div class="client-item">崂山啤酒</div>
+    <div class="client-item">健达 Kinder</div>
+    <div class="client-item">李锦记</div>
+    <div class="client-item">光明乳业</div>
+    <div class="client-item">惠氏启赋</div>
+    <div class="client-item">阿里巴巴</div>
+    <div class="client-item">和路雪 Wall's</div>
+    <div class="client-item">ALDI 奥乐齐</div>
+    <div class="client-item">屈臣家居</div>
+    <div class="client-item">喜之郎 CICI</div>
+    <div class="client-item">统一绿茶</div>
     <div class="client-item">虔酒</div>
     <div class="client-item">药匣子</div>
     <div class="client-item">小年食知</div>
