@@ -90,6 +90,7 @@
   <button class="filter-btn" data-filter="brand">品牌包装</button>
   <button class="filter-btn" data-filter="model">外模拍摄</button>
   <button class="filter-btn" data-filter="ai">AI 短剧</button>
+  <button class="filter-btn" onclick="document.querySelector('.tvc-section').scrollIntoView({behavior:'smooth'})" style="border-color:rgba(201,168,76,0.4);color:var(--gold)">历史经典 TVC</button>
 </div>
 
 <!-- 品牌包装作品网格 -->
@@ -188,6 +189,106 @@
 <section class="tvc-section">
   <p class="section-label">TVC Works</p>
   <h2 class="section-title">TVC 精选作品</h2>
+  <p style="color:var(--muted);font-size:14px;line-height:1.8;max-width:600px;margin-bottom:48px">
+    主创团队历史代表作，服务青岛啤酒、健达、李锦记、惠氏启赋等国际一线品牌，多部作品播放量破亿，荣获伦敦国际奖华文金奖。
+  </p>
+
+  <!-- 历史经典TVC -->
+  <p style="font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:24px">Legacy Works · 历史经典</p>
+  <div class="tvc-grid" style="margin-bottom:60px">
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/tsingtao-nightowl.jpg" alt="青岛啤酒夜猫子奇幻夜">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+        <div style="position:absolute;top:12px;right:12px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.5);color:var(--gold);font-size:10px;letter-spacing:2px;padding:3px 8px">伦敦国际奖 金奖</div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">Tsingtao Beer · 青岛啤酒</div>
+        <div class="tvc-name">《夜猫子奇幻夜》</div>
+        <div class="tvc-desc">播放量破亿 · 微博话题阅读量破1亿 · 讨论量超125万</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/tsingtao-foam.jpg" alt="青岛啤酒极地欢聚吧">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">Tsingtao Beer · 青岛啤酒</div>
+        <div class="tvc-name">《极地欢聚吧》</div>
+        <div class="tvc-desc">极地探险主题，国际化创意表达，畅享欢聚时刻</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/kinder-love.jpg" alt="健达巧克力爱的瞬间">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">Kinder · 健达巧克力</div>
+        <div class="tvc-name">《爱的瞬间篇》</div>
+        <div class="tvc-desc">亲子情感共鸣，健达相信每一个爱的瞬间</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/lkk-kitchen.jpg" alt="李锦记美味厨房">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">Lee Kum Kee · 李锦记</div>
+        <div class="tvc-name">《美味厨房篇》</div>
+        <div class="tvc-desc">黑白厨房风格，爱的时遇之心，传递家的温度</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/laoshan-friendship.jpg" alt="崂山啤酒为友情喝彩">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">Laoshan Beer · 崂山啤酒</div>
+        <div class="tvc-name">《为友情喝彩篇》</div>
+        <div class="tvc-desc">篮球友情主题，真实情感共鸣，助力客户突破百亿</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/illuma-talent.jpg" alt="惠氏启赋天赋篇">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">illuma · 惠氏启赋</div>
+        <div class="tvc-name">《天赋篇》</div>
+        <div class="tvc-desc">竹林自然意境，天赋启迪，为宝宝的成长护航</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/guangming-mosilian.jpg" alt="光明乳业莫斯利安">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">光明乳业</div>
+        <div class="tvc-name">《莫斯利安·唱歌篇》</div>
+        <div class="tvc-desc">为热爱不老，长寿村的神奇秘密</div>
+      </div>
+    </div>
+    <div class="tvc-card">
+      <div class="tvc-thumb">
+        <img src="images/tvc/jukang-brand.jpg" alt="居康家居品牌形象">
+        <div class="tvc-play"><div class="play-btn">▶</div></div>
+      </div>
+      <div class="tvc-info">
+        <div class="tvc-brand">居康家居</div>
+        <div class="tvc-name">《品牌形象篇》</div>
+        <div class="tvc-desc">轻运动，让健康更简单 · Soft Sport makes Health Easier</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 近期TVC作品 -->
+  <p style="font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:24px">Recent Works · 近期作品</p>
   <div class="tvc-grid">
     <div class="tvc-card">
       <div class="tvc-thumb">
