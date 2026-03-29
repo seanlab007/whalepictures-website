@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVC制作资讯 | Whale Pictures 新闻中心</title>
+  <meta name="description" content="TVC广告制作行业资讯、制作教程、成本指南 - Whale Pictures新闻中心">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.whalepictures.vip/blog-tvc.html">
+  <style>
+    :root { --bg-dark: #0a0a0a; --gold: #c9a962; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg-dark); color: #fff; font-family: -apple-system, sans-serif; line-height: 1.6; }
+    nav { display: flex; justify-content: space-between; padding: 20px 48px; background: rgba(10,10,10,0.95); position: fixed; width: 100%; z-index: 1000; }
+    .nav-logo { font-size: 20px; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: 3px; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+    .hero { padding: 140px 48px 60px; text-align: center; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); }
+    .hero h1 { font-size: 42px; margin-bottom: 15px; }
+    .category-tabs { display: flex; gap: 16px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+    .category-tab { padding: 12px 28px; background: transparent; border: 1px solid #333; color: #888; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .category-tab:hover, .category-tab.active { background: var(--gold); border-color: var(--gold); color: #000; }
+    .blog-section { padding: 40px 48px 100px; max-width: 1200px; margin: 0 auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 32px; margin-top: 40px; }
+    .blog-card { background: #141414; border-radius: 12px; overflow: hidden; transition: transform 0.3s; text-decoration: none; display: block; }
+    .blog-card:hover { transform: translateY(-8px); }
+    .blog-card-content { padding: 28px; }
+    .blog-card-category { color: var(--gold); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+    .blog-card-title { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .blog-card-excerpt { color: #888; font-size: 14px; margin-bottom: 16px; }
+    .blog-card-meta { color: #555; font-size: 12px; }
+    footer { background: #0a0a0a; padding: 40px 48px; text-align: center; color: #444; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">WHALE <span>PICTURES</span></a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">作品集</a></li>
+      <li><a href="services.html">服务</a></li>
+      <li><a href="models.html">外模经纪</a></li>
+      <li><a href="blog.html">新闻</a></li>
+      <li><a href="about.html">关于我们</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>TVC制作</h1>
+    <div class="category-tabs">
+      <a href="blog.html" class="category-tab">全部</a>
+      <a href="blog-ai-drama.html" class="category-tab">AI短剧</a>
+      <a href="blog-tvc.html" class="category-tab active">TVC制作</a>
+      <a href="blog-model.html" class="category-tab">外模趋势</a>
+      <a href="blog-industry.html" class="category-tab">行业资讯</a>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="blog-grid">
+      <a href="blog/tvc-cost-guide.html" class="blog-card">
+        <div class="blog-card-content">
+          <p class="blog-card-category">TVC制作</p>
+          <h3 class="blog-card-title">TVC广告制作预算指南：2025年市场行情解读</h3>
+          <p class="blog-card-excerpt">全面解析不同类型TVC的制作成本构成与市场行情</p>
+          <p class="blog-card-meta">2025-03-18 · 阅读 1,567</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>© 2026 Whale Pictures. All rights reserved.</footer>
+</body>
+</html>

@@ -114,36 +114,76 @@
     <lastmod>2026-03-17</lastmod>
   </url>
 
-  <!-- Blog/新闻页面 (预留) -->
+  <!-- Blog/新闻页面 -->
   <url>
-    <loc>https://www.whalepictures.vip/blog/</loc>
+    <loc>https://www.whalepictures.vip/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+
+  <!-- 新闻分类页 -->
+  <url>
+    <loc>https://www.whalepictures.vip/blog-ai-drama.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog-tvc.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog-model.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog-industry.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-30</lastmod>
   </url>
 
+  <!-- 新闻文章 -->
   <url>
-    <loc>https://www.whalepictures.vip/blog/ai-drama-marketing-guide.html</loc>
+    <loc>https://www.whalepictures.vip/blog/ai-drama-trend-2025.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-    <lastmod>2026-03-17</lastmod>
-    <title>AI短剧营销完全指南 - 如何用AIGC打造品牌流量</title>
+    <priority>0.75</priority>
+    <lastmod>2026-03-28</lastmod>
   </url>
-
   <url>
-    <loc>https://www.whalepictures.vip/blog/foreign-model-hiring-guide.html</loc>
+    <loc>https://www.whalepictures.vip/blog/douyin-ai-drama-guide.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-    <lastmod>2026-03-17</lastmod>
-    <title>外籍模特预约全攻略 - 品牌出海必看</title>
+    <priority>0.75</priority>
+    <lastmod>2026-03-25</lastmod>
   </url>
-
   <url>
-    <loc>https://www.whalepictures.vip/blog/tvc-vs-ai-drama-comparison.html</loc>
+    <loc>https://www.whalepictures.vip/blog/foreign-model-trend.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-    <lastmod>2026-03-17</lastmod>
-    <title>TVC广告 vs AI短剧 - 品牌应该如何选择？</title>
+    <priority>0.75</priority>
+    <lastmod>2026-03-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog/tvc-cost-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-18</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog/ai-vs-traditional-video.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-15</lastmod>
+  </url>
+  <url>
+    <loc>https://www.whalepictures.vip/blog/model-selection-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-03-10</lastmod>
   </url>
 
 </urlset>

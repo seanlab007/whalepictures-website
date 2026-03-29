@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.whalepictures.com/sitemap.xml
+Sitemap: https://www.whalepictures.vip/sitemap.xml
 
 # 优先级页面
 Allow: /index.html
@@ -17,8 +17,9 @@ Allow: /models.html
 Allow: /about.html
 Allow: /contact.html
 
-# Blog 页面
-Allow: /blog/
+# Blog/新闻页面
+Allow: /blog.html
+Allow: /blog-*.html
 Allow: /blog/*.html
 
 # 静态资源
@@ -70,4 +71,4 @@ Allow: /
 # Crawl-delay: 1
 
 # 主机声明
-Host: https://www.whalepictures.com
+Host: https://www.whalepictures.vip
